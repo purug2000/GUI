@@ -49,6 +49,7 @@
     messageType : 'std_msgs/String'
   });
 
+  
   listener.subscribe(function(message) {
     console.log('Received message on ' + listener.name + ': ' + message.data);
     listener.unsubscribe();
