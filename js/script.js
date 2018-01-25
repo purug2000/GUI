@@ -49,10 +49,12 @@
     messageType : 'std_msgs/String'
   });
 
-  listener.subscribe(function(message) {
+  /*listener.subscribe(function(message) {
+    var text=document.getElementById("msg");
+    text.textContent='Received message on ' + listener.name + ': ' + message.data;
     console.log('Received message on ' + listener.name + ': ' + message.data);
     listener.unsubscribe();
-  });
+  });*/
 
   // Calling a service
   // -----------------
@@ -68,11 +70,10 @@
     b : 2
   });
 
-  addTwoIntsClient.callService(request, function(result) {
-    //console.log('Result for service call on '
-    var txt=document.getElementById("txt");
+ /* addTwoIntsClient.callService(request, function(result) {
+        var txt=document.getElementById("txt");
 	txt.textContent="Result for service call on"+  addTwoIntsClient.name+ ': '+ result.sum;
-  });
+  });*/
 
   // Getting and setting a param value
   // ---------------------------------
@@ -90,3 +91,19 @@
   maxVelX.get(function(value) {
     console.log('MAX VAL: ' + value);
   });
+
+  document.getElementById("primary").onclick=function(){
+      
+    listener.subscribe(function(message) {
+    var text=document.getElementById("msg");
+    text.textContent='Received message on ' + listener.name + ': ' + message.data;
+    console.log('Received message on ' + listener.name + ': ' + message.data);
+    listener.unsubscribe();
+  });    
+
+    addTwoIntsClient.callService(request, function(result) {
+    var txt=document.getElementById("txt");
+    txt.textContent="Result for service call on"+  addTwoIntsClient.name+ ': '+ result.sum;
+  });
+
+  };
