@@ -1,9 +1,12 @@
 # Graphical User Interface for ROS
 ## Humanoid Robotics, IITK
 ### Usage Instructions
+
 __Clone__ the repostitory
+
 To begin, we will launch ROS. To do so, run the following in a terminal:
    ` roscore`
+   
 Next, start publishing a message from the server to test our JavaScript subscriber:
 `    rostopic pub /listener std_msgs/String "Hello, World"`
 
