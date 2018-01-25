@@ -93,17 +93,25 @@
   });
 
   document.getElementById("primary").onclick=function(){
-      
-    listener.subscribe(function(message) {
-    var text=document.getElementById("msg");
-    text.textContent='Received message on ' + listener.name + ': ' + message.data;
-    console.log('Received message on ' + listener.name + ': ' + message.data);
-    listener.unsubscribe();
-  });    
-
-    addTwoIntsClient.callService(request, function(result) {
+    
     var txt=document.getElementById("txt");
-    txt.textContent="Result for service call on"+  addTwoIntsClient.name+ ': '+ result.sum;
-  });
+    var text=document.getElementById("msg");  
+    
+    if(txt.textContent===""||text.textContent===""){
+      listener.subscribe(function(message) {    
+        text.textContent='Received message on ' + listener.name + ': ' + message.data;
+        console.log('Received message on ' + listener.name + ': ' + message.data);
+        listener.unsubscribe();
+      });    
+
+      addTwoIntsClient.callService(request, function(result) {
+        txt.textContent="Result for service call on"+  addTwoIntsClient.name+ ': '+ result.sum; 
+      });
+    }
+
+    else{
+      txt.textContent="";
+      text.textContent="";
+    }
 
   };
