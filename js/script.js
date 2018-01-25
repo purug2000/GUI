@@ -71,10 +71,7 @@
   addTwoIntsClient.callService(request, function(result) {
     //console.log('Result for service call on '
     var txt=document.getElementById("txt");
-	txt.textContent="Result for service call on";      
-	+ addTwoIntsClient.name
-      + ': '
-      + result.sum;
+	txt.textContent="Result for service call on"+  addTwoIntsClient.name+ ': '+ result.sum;
   });
 
   // Getting and setting a param value
