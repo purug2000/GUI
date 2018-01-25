@@ -49,12 +49,13 @@
     messageType : 'std_msgs/String'
   });
 
-  /*listener.subscribe(function(message) {
+  
+  listener.subscribe(function(message) {
     var text=document.getElementById("msg");
     text.textContent='Received message on ' + listener.name + ': ' + message.data;
     console.log('Received message on ' + listener.name + ': ' + message.data);
     listener.unsubscribe();
-  });*/
+  });
 
   // Calling a service
   // -----------------
