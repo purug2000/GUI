@@ -117,14 +117,40 @@
 
   };
 
+
   document.getElementById("s1").onclick=function(){
-    document.getElementById("f1").textContent="string name";
-    document.getElementById("f2").textContent="int32[] motor_ids";
-    document.getElementById("f3").textContent="int32[] motor_temps";
-    document.getElementById("f4").textContent="float64 goal_pos";
-    document.getElementById("f5").textContent="float64 current_pos";
-    document.getElementById("f6").textContent="float64 error";
-    document.getElementById("f7").textContent="float64 velocity";
-    document.getElementById("f8").textContent="float64 load";
-    document.getElementById("f9").textContent="bool is_moving";
+    if(document.getElementById("d1").textContent===""){
+      document.getElementById("f1").textContent="string name";
+      document.getElementById("f2").textContent="int32[] motor_ids";
+      document.getElementById("f3").textContent="int32[] motor_temps";
+      document.getElementById("f4").textContent="float64 goal_pos";
+      document.getElementById("f5").textContent="float64 current_pos";
+      document.getElementById("f6").textContent="float64 error";
+      document.getElementById("f7").textContent="float64 velocity";
+      document.getElementById("f8").textContent="float64 load";
+      document.getElementById("f9").textContent="bool is_moving";
+      listener.subscribe(function(message) {    
+        document.getElementById("d1").textContent=message.name;
+        document.getElementById("d2").textContent=message.motor_ids;
+        document.getElementById("d3").textContent=message.motor_temps;
+        document.getElementById("d4").textContent=message.goal_pos;
+        document.getElementById("d5").textContent=message.current_pos;
+        document.getElementById("d6").textContent=message.error;
+        document.getElementById("d7").textContent=message.velocity;
+        document.getElementById("d8").textContent=message.load;
+        document.getElementById("d9").textContent=message.is_moving;
+      });
+    }
+    else{
+      document.getElementById("d1").textContent="";
+      document.getElementById("d2").textContent="";
+      document.getElementById("d3").textContent="";
+      document.getElementById("d4").textContent="";
+      document.getElementById("d5").textContent="";
+      document.getElementById("d6").textContent="";
+      document.getElementById("d7").textContent="";
+      document.getElementById("d8").textContent="";
+      document.getElementById("d9").textContent="";
+      listener.unsubscribe();    
+    } 
   };  
