@@ -46,7 +46,7 @@
   var listener = new ROSLIB.Topic({
     ros : ros,
     name : '/listener',
-    messageType : 'std_msgs/String'
+    messageType : 'dynamixel_msgs/JointState.msg'
   });
 
   
@@ -116,3 +116,15 @@
     }
 
   };
+
+  document.getElementById("s1").onclick=function(){
+    document.getElementById("f1").textContent="string name";
+    document.getElementById("f2").textContent="int32[] motor_ids";
+    document.getElementById("f3").textContent="int32[] motor_temps";
+    document.getElementById("f4").textContent="float64 goal_pos";
+    document.getElementById("f5").textContent="float64 current_pos";
+    document.getElementById("f6").textContent="float64 error";
+    document.getElementById("f7").textContent="float64 velocity";
+    document.getElementById("f8").textContent="float64 load";
+    document.getElementById("f9").textContent="bool is_moving";
+  };  
