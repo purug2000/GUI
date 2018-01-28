@@ -50,12 +50,12 @@
   });
 
   
-  listener.subscribe(function(message) {
-    var text=document.getElementById("msg");
-    text.textContent='Received message on ' + listener.name + ': ' + message.data;
-    console.log('Received message on ' + listener.name + ': ' + message.data);
-    listener.unsubscribe();
-  });
+  // listener.subscribe(function(message) {
+  //   var text=document.getElementById("msg");
+  //   text.textContent='Received message on ' + listener.name + ': ' + message.data;
+  //   console.log('Received message on ' + listener.name + ': ' + message.data);
+  //   listener.unsubscribe();
+  // });
 
   // Calling a service
   // -----------------
@@ -102,6 +102,12 @@
       listener.subscribe(function(message) {    
         text.textContent='Received message on ' + listener.name + ': ' + message.data;
         console.log('Received message on ' + listener.name + ': ' + message.data);
+         var listener = new ROSLIB.Topic({
+    ros : ros,
+    name : '/listener',
+    messageType : 'dynamixel_msgs/JointState.msg'
+  });
+
         listener.unsubscribe();
       });    
 
@@ -119,7 +125,6 @@
 
 
   document.getElementById("s1").onclick=function(){
-    if(document.getElementById("d1").textContent===""){
       document.getElementById("f1").textContent="string name";
       document.getElementById("f2").textContent="int32[] motor_ids";
       document.getElementById("f3").textContent="int32[] motor_temps";
@@ -140,8 +145,18 @@
         document.getElementById("d8").textContent=message.load;
         document.getElementById("d9").textContent=message.is_moving;
       });
-    }
-    else{
+  };  
+
+  document.getElementById("reset").onclick=function(){
+      document.getElementById("f1").textContent="";
+      document.getElementById("f2").textContent="";
+      document.getElementById("f3").textContent="";
+      document.getElementById("f4").textContent="";
+      document.getElementById("f5").textContent="";
+      document.getElementById("f6").textContent="";
+      document.getElementById("f7").textContent="";
+      document.getElementById("f8").textContent="";
+      document.getElementById("f9").textContent="";   
       document.getElementById("d1").textContent="";
       document.getElementById("d2").textContent="";
       document.getElementById("d3").textContent="";
@@ -151,6 +166,4 @@
       document.getElementById("d7").textContent="";
       document.getElementById("d8").textContent="";
       document.getElementById("d9").textContent="";
-      listener.unsubscribe();    
-    } 
   };  
