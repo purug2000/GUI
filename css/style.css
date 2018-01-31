@@ -17,3 +17,8 @@ table, th, td {
     padding=15px;
     font-size:20px;
 }
+
+h1{
+	text-decoration-color: blue;
+	
+}

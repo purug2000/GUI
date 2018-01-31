@@ -46,7 +46,7 @@
   var listener = new ROSLIB.Topic({
     ros : ros,
     name : '/listener',
-    messageType : 'dynamixel_msgs/JointState.msg'
+    messageType : 'dynamixel_msgs/JointState'
   });
 
   
@@ -105,7 +105,7 @@
          var listener = new ROSLIB.Topic({
     ros : ros,
     name : '/listener',
-    messageType : 'dynamixel_msgs/JointState.msg'
+    messageType : 'dynamixel_msgs/JointState'
   });
 
         listener.unsubscribe();
@@ -123,8 +123,11 @@
 
   };
 
+  var lis_num=0;
 
   document.getElementById("s1").onclick=function(){
+      unsub();
+      lis_num=1;
       document.getElementById("f1").textContent="string name";
       document.getElementById("f2").textContent="int32[] motor_ids";
       document.getElementById("f3").textContent="int32[] motor_temps";
@@ -134,7 +137,7 @@
       document.getElementById("f7").textContent="float64 velocity";
       document.getElementById("f8").textContent="float64 load";
       document.getElementById("f9").textContent="bool is_moving";
-      listener.subscribe(function(message) {    
+      listener.subscribe(function(message) {    //add 1 before listener
         document.getElementById("d1").textContent=message.name;
         document.getElementById("d2").textContent=message.motor_ids;
         document.getElementById("d3").textContent=message.motor_temps;
@@ -148,22 +151,31 @@
   };  
 
   document.getElementById("reset").onclick=function(){
-      document.getElementById("f1").textContent="";
-      document.getElementById("f2").textContent="";
-      document.getElementById("f3").textContent="";
-      document.getElementById("f4").textContent="";
-      document.getElementById("f5").textContent="";
-      document.getElementById("f6").textContent="";
-      document.getElementById("f7").textContent="";
-      document.getElementById("f8").textContent="";
-      document.getElementById("f9").textContent="";   
-      document.getElementById("d1").textContent="";
-      document.getElementById("d2").textContent="";
-      document.getElementById("d3").textContent="";
-      document.getElementById("d4").textContent="";
-      document.getElementById("d5").textContent="";
-      document.getElementById("d6").textContent="";
-      document.getElementById("d7").textContent="";
-      document.getElementById("d8").textContent="";
-      document.getElementById("d9").textContent="";
+      unsub();
+      document.getElementById("f1").textContent=" ";
+      document.getElementById("f2").textContent=" ";
+      document.getElementById("f3").textContent=" ";
+      document.getElementById("f4").textContent=" ";
+      document.getElementById("f5").textContent=" ";
+      document.getElementById("f6").textContent=" ";
+      document.getElementById("f7").textContent=" ";
+      document.getElementById("f8").textContent=" ";
+      document.getElementById("f9").textContent=" ";   
+      document.getElementById("d1").textContent=" ";
+      document.getElementById("d2").textContent=" ";
+      document.getElementById("d3").textContent=" ";
+      document.getElementById("d4").textContent=" ";
+      document.getElementById("d5").textContent=" ";
+      document.getElementById("d6").textContent=" ";
+      document.getElementById("d7").textContent=" ";
+      document.getElementById("d8").textContent=" ";
+      document.getElementById("d9").textContent=" ";
   };  
+
+function unsub(){
+    //unsubscribe listener number lis_num
+    //if lis_num===0 do nothiung
+
+}
+
+
