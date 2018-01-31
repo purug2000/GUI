@@ -10,6 +10,9 @@ body {
    background: rgba(255, 255, 255, 0.5); 
    text-align: center;
 }
+.container{
+	color: white;
+}
 
 table, th, td {
     border: 2px solid black;
