@@ -148,6 +148,106 @@
         document.getElementById("d8").textContent=message.load;
         document.getElementById("d9").textContent=message.is_moving;
       });
+  };
+
+  document.getElementById("s2").onclick=function(){
+      unsub();
+      lis_num=2;
+      document.getElementById("f1").textContent="string name";
+      document.getElementById("f2").textContent="int32[] motor_ids";
+      document.getElementById("f3").textContent="int32[] motor_temps";
+      document.getElementById("f4").textContent="float64 goal_pos";
+      document.getElementById("f5").textContent="float64 current_pos";
+      document.getElementById("f6").textContent="float64 error";
+      document.getElementById("f7").textContent="float64 velocity";
+      document.getElementById("f8").textContent="float64 load";
+      document.getElementById("f9").textContent="bool is_moving";
+      listener.subscribe(function(message) {    //add 1 before listener
+        document.getElementById("d1").textContent=message.name;
+        document.getElementById("d2").textContent=message.motor_ids;
+        document.getElementById("d3").textContent=message.motor_temps;
+        document.getElementById("d4").textContent=message.goal_pos;
+        document.getElementById("d5").textContent=message.current_pos;
+        document.getElementById("d6").textContent=message.error;
+        document.getElementById("d7").textContent=message.velocity;
+        document.getElementById("d8").textContent=message.load;
+        document.getElementById("d9").textContent=message.is_moving;
+      });
+  };
+
+  document.getElementById("s3").onclick=function(){
+      unsub();
+      lis_num=3;
+      document.getElementById("f1").textContent="string name";
+      document.getElementById("f2").textContent="int32[] motor_ids";
+      document.getElementById("f3").textContent="int32[] motor_temps";
+      document.getElementById("f4").textContent="float64 goal_pos";
+      document.getElementById("f5").textContent="float64 current_pos";
+      document.getElementById("f6").textContent="float64 error";
+      document.getElementById("f7").textContent="float64 velocity";
+      document.getElementById("f8").textContent="float64 load";
+      document.getElementById("f9").textContent="bool is_moving";
+      listener.subscribe(function(message) {    //add 1 before listener
+        document.getElementById("d1").textContent=message.name;
+        document.getElementById("d2").textContent=message.motor_ids;
+        document.getElementById("d3").textContent=message.motor_temps;
+        document.getElementById("d4").textContent=message.goal_pos;
+        document.getElementById("d5").textContent=message.current_pos;
+        document.getElementById("d6").textContent=message.error;
+        document.getElementById("d7").textContent=message.velocity;
+        document.getElementById("d8").textContent=message.load;
+        document.getElementById("d9").textContent=message.is_moving;
+      });
+  };
+
+  document.getElementById("s4").onclick=function(){
+      unsub();
+      lis_num=4;
+      document.getElementById("f1").textContent="string name";
+      document.getElementById("f2").textContent="int32[] motor_ids";
+      document.getElementById("f3").textContent="int32[] motor_temps";
+      document.getElementById("f4").textContent="float64 goal_pos";
+      document.getElementById("f5").textContent="float64 current_pos";
+      document.getElementById("f6").textContent="float64 error";
+      document.getElementById("f7").textContent="float64 velocity";
+      document.getElementById("f8").textContent="float64 load";
+      document.getElementById("f9").textContent="bool is_moving";
+      listener.subscribe(function(message) {    //add 1 before listener
+        document.getElementById("d1").textContent=message.name;
+        document.getElementById("d2").textContent=message.motor_ids;
+        document.getElementById("d3").textContent=message.motor_temps;
+        document.getElementById("d4").textContent=message.goal_pos;
+        document.getElementById("d5").textContent=message.current_pos;
+        document.getElementById("d6").textContent=message.error;
+        document.getElementById("d7").textContent=message.velocity;
+        document.getElementById("d8").textContent=message.load;
+        document.getElementById("d9").textContent=message.is_moving;
+      });
+  };
+
+  document.getElementById("s5").onclick=function(){
+      unsub();
+      lis_num=5;
+      document.getElementById("f1").textContent="string name";
+      document.getElementById("f2").textContent="int32[] motor_ids";
+      document.getElementById("f3").textContent="int32[] motor_temps";
+      document.getElementById("f4").textContent="float64 goal_pos";
+      document.getElementById("f5").textContent="float64 current_pos";
+      document.getElementById("f6").textContent="float64 error";
+      document.getElementById("f7").textContent="float64 velocity";
+      document.getElementById("f8").textContent="float64 load";
+      document.getElementById("f9").textContent="bool is_moving";
+      listener.subscribe(function(message) {    //add 1 before listener
+        document.getElementById("d1").textContent=message.name;
+        document.getElementById("d2").textContent=message.motor_ids;
+        document.getElementById("d3").textContent=message.motor_temps;
+        document.getElementById("d4").textContent=message.goal_pos;
+        document.getElementById("d5").textContent=message.current_pos;
+        document.getElementById("d6").textContent=message.error;
+        document.getElementById("d7").textContent=message.velocity;
+        document.getElementById("d8").textContent=message.load;
+        document.getElementById("d9").textContent=message.is_moving;
+      });
   };  
 
   document.getElementById("reset").onclick=function(){
@@ -173,8 +273,11 @@
   };  
 
 function unsub(){
-    //unsubscribe listener number lis_num
-    //if lis_num===0 do nothiung
+    if(lis_num===0);
+    else{
+      str="listener"+str(lis_num);
+      str.unsubscribe();
+    } 
 
 }
 
