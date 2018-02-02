@@ -49,7 +49,7 @@
     messageType : 'dynamixel_msgs/JointState'
   });
 
-  
+
   // listener.subscribe(function(message) {
   //   var text=document.getElementById("msg");
   //   text.textContent='Received message on ' + listener.name + ': ' + message.data;
@@ -94,12 +94,12 @@
   });
 
   document.getElementById("primary").onclick=function(){
-    
+
     var txt=document.getElementById("txt");
-    var text=document.getElementById("msg");  
-    
+    var text=document.getElementById("msg");
+
     if(txt.textContent===""||text.textContent===""){
-      listener.subscribe(function(message) {    
+      listener.subscribe(function(message) {
         text.textContent='Received message on ' + listener.name + ': ' + message.data;
         console.log('Received message on ' + listener.name + ': ' + message.data);
          var listener = new ROSLIB.Topic({
@@ -109,10 +109,10 @@
   });
 
         listener.unsubscribe();
-      });    
+      });
 
       addTwoIntsClient.callService(request, function(result) {
-        txt.textContent="Result for service call on"+  addTwoIntsClient.name+ ': '+ result.sum; 
+        txt.textContent="Result for service call on"+  addTwoIntsClient.name+ ': '+ result.sum;
       });
     }
 
@@ -128,15 +128,6 @@
   document.getElementById("s1").onclick=function(){
       unsub();
       lis_num=1;
-      document.getElementById("f1").textContent="string name";
-      document.getElementById("f2").textContent="int32[] motor_ids";
-      document.getElementById("f3").textContent="int32[] motor_temps";
-      document.getElementById("f4").textContent="float64 goal_pos";
-      document.getElementById("f5").textContent="float64 current_pos";
-      document.getElementById("f6").textContent="float64 error";
-      document.getElementById("f7").textContent="float64 velocity";
-      document.getElementById("f8").textContent="float64 load";
-      document.getElementById("f9").textContent="bool is_moving";
       listener.subscribe(function(message) {    //add 1 before listener
         document.getElementById("d1").textContent=message.name;
         document.getElementById("d2").textContent=message.motor_ids;
@@ -248,7 +239,7 @@
         document.getElementById("d8").textContent=message.load;
         document.getElementById("d9").textContent=message.is_moving;
       });
-  };  
+  };
 
   document.getElementById("reset").onclick=function(){
       unsub();
@@ -260,7 +251,7 @@
       document.getElementById("f6").textContent=" ";
       document.getElementById("f7").textContent=" ";
       document.getElementById("f8").textContent=" ";
-      document.getElementById("f9").textContent=" ";   
+      document.getElementById("f9").textContent=" ";
       document.getElementById("d1").textContent=" ";
       document.getElementById("d2").textContent=" ";
       document.getElementById("d3").textContent=" ";
@@ -270,15 +261,13 @@
       document.getElementById("d7").textContent=" ";
       document.getElementById("d8").textContent=" ";
       document.getElementById("d9").textContent=" ";
-  };  
+  };
 
 function unsub(){
     if(lis_num===0);
     else{
       str="listener"+str(lis_num);
       str.unsubscribe();
-    } 
+    }
 
 }
-
-
